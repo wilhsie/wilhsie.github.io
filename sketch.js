@@ -6,14 +6,11 @@ let dragDiv;
 let canvas;
 
 function preload() {
-  mySound = loadSound('./sounds/dilla.wav');
+  mySound = loadSound('./sounds/core_dump.wav');
  }
 
 function setup() {
-  dragDiv = createDiv('');
-  dragDiv.addClass('drag');
   canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent(dragDiv)
 
   angleMode(DEGREES)
   rectMode(CENTER)
