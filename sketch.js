@@ -4,6 +4,7 @@ let window_stroke;
 let particles = []
 let dragDiv;
 let canvas;
+let onDragDiv;
 
 function preload() {
   mySound = loadSound('./sounds/core_dump.wav');
@@ -12,9 +13,25 @@ function preload() {
 function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
 
+  dragDiv = select('.drag')
+  console.log(dragDiv)
+
   angleMode(DEGREES)
   rectMode(CENTER)
   fft = new p5.FFT(0.3);
+
+  dragDiv.mouseOver(changeColorYellow)
+  dragDiv.mouseOut(changeColorBlue)
+}
+
+function changeColorBlue() {
+  dragDiv.style('background-color', '#0000FF')
+  onDragDiv = true
+}
+
+function changeColorYellow() {
+  dragDiv.style('background-color', '#FFFF00')
+  onDragDiv = false
 }
 
 function draw() {
@@ -64,12 +81,14 @@ function draw() {
 }
 
 function mouseClicked() {
-  if (mySound.isPlaying()) {
-    mySound.pause()
-    noLoop()
-  } else {
-    mySound.play()
-    loop()
+  if (onDragDiv == true) {
+    if (mySound.isPlaying()) {
+      mySound.pause()
+      noLoop()
+    } else {
+      mySound.play()
+      loop()
+    }
   }
 }
 
