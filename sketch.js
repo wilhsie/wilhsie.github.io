@@ -6,16 +6,18 @@ let dragDiv;
 let canvas;
 let songs = []
 let songId = 0;
-const TOTAL_SONGS = 3
+const TOTAL_SONGS = 4
 
 function preload() {
   sound1 = loadSound('./sounds/core_dump.wav')
   sound2 = loadSound('./sounds/awe.wav')
   sound3 = loadSound('./sounds/bop.wav')
+  sound4 = loadSound('./sounds/drip.wav')
   
   songs.push(sound1)
   songs.push(sound2)
   songs.push(sound3)
+  songs.push(sound4)
  }
 
 function setup() {
