@@ -16,6 +16,17 @@ function setup() {
   angleMode(DEGREES)
   rectMode(CENTER)
   fft = new p5.FFT(0.3);
+
+  let container = createDiv()
+  container.addClass('container')
+  let sliderDiv = createDiv()
+  // sliderDiv.addClass('is-vertical')
+  sliderDiv.addClass('slider-div')
+  slider = createSlider(0, 1, 0.5, 0.01);
+  slider.position(0,0);
+  slider.size(150);
+  slider.parent(sliderDiv)
+  sliderDiv.parent(container)
 }
 
 function createMetaTag() {
@@ -71,9 +82,12 @@ function draw() {
       particles.splice(i, 1)
     }
   }
+
+  mySound.setVolume(slider.value());
 }
 
 function touchStarted() {
+  // TODO: modify function to not effect play/pause when using volume slider
   if (mySound.isPlaying()) {
     mySound.pause()
     noLoop()
@@ -83,10 +97,11 @@ function touchStarted() {
   }
 }
 
-function touchMoved() {
-  // prevent the display from moving around when you touch it
-  return false;
-}
+// TODO: modify function to allow moving when using volume slider
+// function touchMoved() {
+//   // prevent the display from moving around when you touch it
+//   return false;
+// }
 
 class Particle {
   constructor() {

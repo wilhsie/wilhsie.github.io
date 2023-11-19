@@ -16,4 +16,34 @@ html, body {
   background: blue;
   cursor: pointer;
   position: fixed;
+  }
+
+.slider-div {
+  transform: rotate(270deg) translateX(calc(-50% + 8px));
 }
+
+.container {
+  width: 5vh;
+  position: absolute;
+  top: 36%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="range"] {
+  width: 85%;
+  -webkit-appearance: none;
+  height: 5px;
+  position: relative;
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 1px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color:blueviolet;
+  height: 15px;
+  width: 8px;
+  border-radius: 0%;
+}
+
