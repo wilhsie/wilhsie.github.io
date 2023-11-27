@@ -17,3 +17,10 @@ html, body {
   cursor: pointer;
   position: fixed;
 }
+button {
+  padding:5px;
+  background-color: transparent;
+  border: none;
+  color:#8a2be2;
+  text-decoration:none;
+}

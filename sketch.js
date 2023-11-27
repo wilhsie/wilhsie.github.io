@@ -1,12 +1,22 @@
 let fft;
-let img
 let window_stroke;
 let particles = []
 let dragDiv;
 let canvas;
+let songs = []
+let songId = 0;
+const TOTAL_SONGS = 4
 
 function preload() {
-  mySound = loadSound('./sounds/core_dump.wav');
+  sound1 = loadSound('./sounds/core_dump.wav')
+  sound2 = loadSound('./sounds/awe.wav')
+  sound3 = loadSound('./sounds/bop.wav')
+  sound4 = loadSound('./sounds/drip.wav')
+  
+  songs.push(sound1)
+  songs.push(sound2)
+  songs.push(sound3)
+  songs.push(sound4)
  }
 
 function setup() {
@@ -16,6 +26,10 @@ function setup() {
   angleMode(DEGREES)
   rectMode(CENTER)
   fft = new p5.FFT(0.3);
+
+  button = createButton('shuffle');
+  button.position(0, 0);
+  button.mousePressed(selectSong);
 }
 
 function createMetaTag() {
@@ -73,12 +87,21 @@ function draw() {
   }
 }
 
+function selectSong() {
+  if (songs[songId].isPlaying()) {
+    songs[songId].stop()
+    noLoop()
+  }
+  songId = (songId + 1) % TOTAL_SONGS
+}
+
 function touchStarted() {
-  if (mySound.isPlaying()) {
-    mySound.pause()
+  console.log(songs)
+  if (songs[songId].isPlaying()) {
+    songs[songId].pause()
     noLoop()
   } else {
-    mySound.play()
+    songs[songId].play()
     loop()
   }
 }
