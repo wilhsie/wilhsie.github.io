@@ -1,5 +1,4 @@
 let fft;
-let img
 let window_stroke;
 let particles = []
 let dragDiv;
