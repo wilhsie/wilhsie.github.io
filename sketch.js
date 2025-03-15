@@ -5,7 +5,7 @@ let dragDiv;
 let canvas;
 let songs = []
 let songId = 0;
-const TOTAL_SONGS = 5
+const TOTAL_SONGS = 7
 
 function preload() {
   sound1 = loadSound('./sounds/core_dump.wav')
