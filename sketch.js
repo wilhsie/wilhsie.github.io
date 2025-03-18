@@ -13,7 +13,7 @@ function preload() {
   sound3 = loadSound('./sounds/bop.wav')
   sound4 = loadSound('./sounds/drip.wav')
   sound5 = loadSound('./sounds/2006.wav')
-  sound6 = loadSound('.sounds/feel.wav')
+  sound6 = loadSound('./sounds/feel.wav')
   sound7 = loadSound('./sounds/luv4u.wav')
   
   
